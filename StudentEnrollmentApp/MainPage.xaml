@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="StudentEnrollmentApp.MainPage">
+
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="20"
+        VerticalOptions="Center">
+
+        <Label
+            Text="Student Enrollment System"
+            FontSize="30"
+            HorizontalOptions="Center"/>
+
+        <Button
+            Text="Students"
+            Clicked="OnStudentsClicked"/>
+
+        <Button
+            Text="Courses"
+            Clicked="OnCoursesClicked"/>
+
+        <Button
+            Text="Enrollments"
+            Clicked="OnEnrollmentsClicked"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>
