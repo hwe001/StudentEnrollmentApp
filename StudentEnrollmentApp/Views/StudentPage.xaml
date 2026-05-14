@@ -23,7 +23,8 @@
 
             <Entry
                 x:Name="emailEntry"
-                Placeholder="Email"/>
+                Placeholder="Email"
+                Keyboard="Email"/>
 
             <Button
                 Text="Add Student"

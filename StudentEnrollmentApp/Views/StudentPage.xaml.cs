@@ -1,5 +1,6 @@
 using StudentEnrollmentApp.Models;
 using StudentEnrollmentApp.Services;
+using System.Text.RegularExpressions;
 
 namespace StudentEnrollmentApp.Views;
 
@@ -24,6 +25,17 @@ public partial class StudentPage : ContentPage
         };
     }
 
+    private bool IsValidEmail(string email)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+            return false;
+
+        string pattern =
+            @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+        return Regex.IsMatch(email, pattern);
+    }
+
     private async void OnAddStudentClicked(object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(nameEntry.Text))
@@ -35,7 +47,15 @@ public partial class StudentPage : ContentPage
 
             return;
         }
+        if (!IsValidEmail(emailEntry.Text))
+        {
+            await DisplayAlert(
+                "Invalid Email",
+                "Please enter a valid email address.",
+                "OK");
 
+            return;
+        }
         Student student = new Student
         {
             Name = nameEntry.Text,
